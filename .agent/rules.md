@@ -88,7 +88,7 @@ import type { User } from "@/types";
 - **Use functional components** with hooks (no class components)
 - **Prefer named exports** for components (better for refactoring)
 - **Use `"use client"` directive** only when necessary (default to Server Components)
-- **Extract complex logic** into custom hooks
+- **React 19**: Use `use` hook for resource reading if applicable, and Server Actions for mutations
 
 ### Props & Types
 
@@ -137,8 +137,8 @@ export function UserCard({ user, onEdit }: { user: any; onEdit: any }) {
 
 ### Error Handling
 
-- **Always handle errors** - Use try/catch blocks
-- **Use custom error classes** for different error types
+- **Async handlers supported** - Express 5 handles async errors automatically (no `express-async-errors` needed)
+- **Use global error handler** - Centralize error response logic
 - **Log errors** with context (user ID, request ID, etc.)
 - **Never expose internal errors** to clients
 
@@ -262,6 +262,7 @@ Example: `feat: add Bristol scale selector to poop logging form`
 
 - **Start with mobile** - Base styles for mobile, enhance for larger screens
 - **Use Tailwind breakpoints**: `sm:` (640px), `md:` (768px), `lg:` (1024px), `xl:` (1280px)
+- **Tailwind v4**: Use CSS variables and `@theme` in CSS for configuration instead of JS config where possible
 - **Test on real devices** - Not just browser DevTools
 - **Touch targets** - Minimum 44x44px for interactive elements
 

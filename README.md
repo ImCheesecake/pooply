@@ -147,7 +147,7 @@ pooply/
 
 - **Framework:** Next.js 16 (App Router)
 - **Language:** TypeScript
-- **UI Library:** React 19
+- **UI Library:** React 19.2
 - **Styling:** Tailwind CSS
 - **Components:** Shadcn/UI
 - **Charts:** Recharts
