@@ -7,15 +7,8 @@ import {
   dummyChartData,
   dummyRecentActivity,
 } from "@/lib/dummyData";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
-import { Activity, Calendar, MapPin, Timer } from "lucide-react";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
+import { Activity, Calendar, Timer } from "lucide-react";
 
 export default function Home() {
   return (
@@ -31,10 +24,7 @@ export default function Home() {
               Track your health, one log at a time.
             </p>
           </div>
-          <Button
-            size="default"
-            className="shadow-lg w-full sm:w-auto sm:text-base"
-          >
+          <Button size="default" className="w-full sm:w-auto sm:text-base">
             + Log New Poop
           </Button>
         </div>
@@ -95,21 +85,14 @@ export default function Home() {
               <CardTitle>Weekly Frequency</CardTitle>
             </CardHeader>
             <CardContent className="p-4">
-              <BarChart
-                width="100%"
-                height={250}
-                responsive
-                data={dummyChartData}
-              >
+              <BarChart height={250} responsive data={dummyChartData}>
                 <XAxis
                   dataKey="name"
-                  stroke="#888888"
                   fontSize={12}
                   tickLine={false}
                   axisLine={false}
                 />
                 <YAxis
-                  stroke="#888888"
                   fontSize={12}
                   tickLine={false}
                   axisLine={false}
@@ -127,6 +110,7 @@ export default function Home() {
                 <Bar
                   dataKey="count"
                   fill="hsl(var(--primary))"
+                  activeBar={{ fill: "hsl(var(--secondary))" }}
                   radius={[4, 4, 0, 0]}
                 />
               </BarChart>
