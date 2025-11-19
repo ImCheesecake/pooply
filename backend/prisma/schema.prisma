@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String   @id // Matches Supabase Auth ID
+  email          String   @unique
+  name           String?
+  avatarUrl      String?
+  telegramChatId String?
+  timezone       String   @default("UTC")
+  createdAt      DateTime @default(now())
+
+  poopSessions PoopSession[]
+  trophies     Trophy[]
+}
+
+model PoopSession {
+  id           String   @id @default(uuid())
+  userId       String
+  bristolType  Int
+  rating       Int
+  note         String?
+  duration     Int      // in seconds
+  latitude     Float?
+  longitude    Float?
+  locationName String?
+  createdAt    DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Trophy {
+  id          String   @id @default(uuid())
+  userId      String
+  name        String
+  description String
+  unlockedAt  DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
