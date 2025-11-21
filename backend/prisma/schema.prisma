@@ -5,8 +5,7 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -32,7 +31,7 @@ model PoopSession {
   bristolType  Int
   rating       Int
   note         String?
-  duration     Int      // in seconds
+  duration     Int // in seconds
   latitude     Float?
   longitude    Float?
   locationName String?
