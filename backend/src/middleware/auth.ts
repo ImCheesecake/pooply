@@ -3,7 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { PrismaClient } from "@prisma/client";
 
 const supabaseUrl = process.env.SUPABASE_URL || "";
-const supabaseKey = process.env.SUPABASE_ANON_KEY || "";
+const supabaseKey = process.env.SUPABASE_PUBLISHABLE_KEY || "";
 const supabase = createClient(supabaseUrl, supabaseKey);
 const prisma = new PrismaClient();
 

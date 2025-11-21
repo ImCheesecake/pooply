@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",
@@ -24,15 +26,23 @@
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
+    "@storybook/nextjs": "^10.0.8",
     "@types/node": "^24.10.1",
     "@types/react": "19.2.0",
     "@types/react-dom": "19.2.0",
     "autoprefixer": "^10.0.1",
     "eslint": "^9.0.0",
     "eslint-config-next": "16.0.3",
+    "eslint-plugin-storybook": "^10.0.8",
     "postcss": "^8",
+    "storybook": "^10.0.8",
     "tailwindcss": "^4.1.17",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   }
 }
